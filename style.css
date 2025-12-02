@@ -1,12 +1,14 @@
 /* RESET A ZÁKLADNÍ STYLY */
-/* ---------------------------------------- */
+html, body, * {
+    cursor: none !important;
+}
 
+/* ---------------------------------------- */
 /* Reset všech marginů a paddingů */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: none !important;
 }
 
 /* CSS proměnné pro barvy */
