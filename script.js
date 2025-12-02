@@ -6,21 +6,6 @@
 // Registrace GSAP pluginů
 gsap.registerPlugin(ScrollTrigger);
 
-/**
- * VLASTNÍ KURZOR MYŠI
- * Vytvoří a animuje vlastní kurzor, který následuje pohyb myši
- */
-const cursor = document.querySelector('.custom-cursor');
-
-// Sledování pohybu myši a aktualizace pozice kurzoru
-document.addEventListener('mousemove', (e) => {
-    gsap.to(cursor, {
-        x: e.clientX,
-        y: e.clientY,
-        duration: 0.2
-    });
-});
-
 
 /**
  * MOBILNÍ MENU
@@ -52,35 +37,35 @@ navLinks.querySelectorAll('a').forEach(link => {
  * Postupné zobrazování elementů hero sekce s časovým odstupem
  */
 // Animace hlavního nadpisu
-gsap.to('.hero h1', { 
-    opacity: 1, 
-    x: 0, 
-    duration: 1, 
-    delay: 0.3 
+gsap.to('.hero h1', {
+    opacity: 1,
+    x: 0,
+    duration: 1,
+    delay: 0.3
 });
 
 // Animace čísla 2025
-gsap.to('.hero-number', { 
-    opacity: 0.1, 
-    x: 0, 
-    duration: 1, 
-    delay: 0.4 
+gsap.to('.hero-number', {
+    opacity: 0.1,
+    x: 4,
+    duration: 10,
+    delay: 0.4
 });
 
 // Animace popisného textu
-gsap.to('.hero p', { 
-    opacity: 1, 
-    y: 0, 
-    duration: 0.8, 
-    delay: 0.5 
+gsap.to('.hero p', {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    delay: 0.5
 });
 
 // Animace tlačítek
-gsap.to('.cta-buttons', { 
-    opacity: 1, 
-    y: 0, 
-    duration: 0.8, 
-    delay: 0.7 
+gsap.to('.cta-buttons', {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    delay: 0.7
 });
 
 
@@ -92,13 +77,13 @@ gsap.utils.toArray('.about-item').forEach((item, i) => {
     gsap.to(item, {
         scrollTrigger: {
             trigger: item,
-            start: 'top 80%', // Animace spustí, když je horní okraj položky na 80% výšky viewportu
-            toggleActions: 'play none none reverse' // Přehrát při scrollování dolů, zvrátit při scrollování nahoru
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
         },
         opacity: 1,
         y: 0,
         duration: 0.8,
-        delay: i * 0.1 // Zpoždění pro každou položku pro efekt postupného zobrazování
+        delay: i * 0.1
     });
 });
 
@@ -162,16 +147,15 @@ gsap.to('.contact-email', {
  * Zajišťuje plynulé přechody mezi sekcemi při kliknutí na navigační odkazy
  */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault(); // Zabránění výchozímu chování
-        
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
         const target = document.querySelector(this.getAttribute('href'));
-        
+
         if (target) {
-            // Scrollování k cílové sekci s odstupem 80px pro navigační lištu
             window.scrollTo({
                 top: target.offsetTop - 80,
-                behavior: 'smooth' // Plynulé scrollování
+                behavior: 'smooth'
             });
         }
     });

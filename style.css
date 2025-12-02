@@ -1,7 +1,5 @@
 /* RESET A ZÁKLADNÍ STYLY */
-html, body, * {
-    cursor: none !important;
-}
+
 
 /* ---------------------------------------- */
 /* Reset všech marginů a paddingů */
@@ -18,7 +16,7 @@ html, body, * {
     --gray: #999999;
 }
 
-/* Hladký scrollování celé stránky */
+/* Hladké scrollování celé stránky */
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px; /* Odstup při scrollování na kotvu */
@@ -27,7 +25,7 @@ html {
 /* Základní styl těla dokumentu */
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: var(--black);
+    background: var(--black) !important;
     color: var(--white);
     line-height: 1.6;
     overflow-x: hidden; /* Skrytí horizontálního scrollu */
@@ -42,16 +40,24 @@ body {
 
 /* VLASTNÍ KURZOR */
 /* ---------------------------------------- */
-.custom-cursor {
-    width: 20px;
-    height: 20px;
+.cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s;
+    mix-blend-mode: difference;
+}
+
+.rounded {
+    width: 18px;
+    height: 18px;
     border: 2px solid var(--white);
     border-radius: 50%;
-    position: fixed;
-    pointer-events: none; /* Kurzor neblokuje klikání na prvky pod ním */
-    z-index: 9999;
-    transition: transform 0.2s, border-color 0.2s;
-    mix-blend-mode: difference; /* Kontrastní efekt vůči pozadí */
+}
+
+/* Odstranění původního stylu kurzoru */
+.custom-cursor {
+    display: none;
 }
 
 
