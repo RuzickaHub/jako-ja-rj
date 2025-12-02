@@ -1,0 +1,4 @@
+portfolio-jakub-ruzicka/
+├── index.html          # Hlavní HTML soubor
+├── style.css           # CSS styly
+└── script.js           # JavaScript kód
